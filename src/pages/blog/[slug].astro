@@ -3,11 +3,29 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Bio from '../../components/Bio.astro';
 import getPostData from '../../utils/getPostData';
 
+// TODO
+// import { type CollectionEntry, getCollection } from 'astro:content';
+// import BlogPost from '../../layouts/BlogPost.astro';
+// export async function getStaticPaths() {
+// 	const posts = await getCollection('blog');
+// 	return posts.map((post) => ({
+// 		params: { slug: post.slug },
+// 		props: post,
+// 	}));
+// }
+// type Props = CollectionEntry<'blog'>;
+// const post = Astro.props;
+// const { Content } = await post.render();
+
+// @ts-ignore
 export async function getStaticPaths() {
+  // @ts-ignore
   const posts = await Astro.glob('../../data/blog-posts/*.md');
-  return posts.map(p => ({
+  // @ts-ignore
+  return posts.map((post) => ({
+    // @ts-ignore
     params: { slug: p.file.split('/').pop().split('.').shift() },
-    props: { post: p },
+    props: { post },
   }));
 }
 
