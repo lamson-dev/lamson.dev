@@ -14,3 +14,9 @@
 // });
 
 // export const collections = { blog };
+
+// https://github.com/withastro/astro/issues/5711
+
+// https://docs.astro.build/en/guides/content-collections/#defining-a-collection-schema
+
+// https://docs.astro.build/en/guides/content-collections/#getcollection
