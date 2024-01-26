@@ -15,14 +15,14 @@ functions.http("submit-contact-form", async (req, res) => {
       return;
     case "GET":
       res.status(200).send("Hello World!");
-      break;
+      return;
     case "POST":
       // handling POST request below
       // res.status(200).send(req.body);
       break;
     default:
       res.status(403).send("Forbidden!");
-      break;
+      return;
   }
 
   if (req.body.botField) {
@@ -60,14 +60,58 @@ functions.http("submit-contact-form", async (req, res) => {
     note,
   };
 
-  const workflowsAPI = await callWorkflowsAPI(params);
-  if (!workflowsAPI.success) {
+  const useWorkflow = false;
+  const apiFunc = useWorkflow ? callWorkflowsAPI : callSheetsAPI;
+  const result = await apiFunc(params);
+
+  if (!result.success) {
     return res.status(500).send(`Failed to submit contact form.`);
   }
 
   // Success!
   res.status(200).send(`Successfully submitted contact form`);
 });
+
+async function callSheetsAPI(params) {
+  const { name, email, organization, note } = params;
+  const valuesToAppend = [name, email, organization, note];
+
+  const spreadsheetId = "1NakupblmiGT5DaCz3B5uOocsifuOtEXGLwlOHhRC-CA";
+  const range = "Sheet1!A1";
+  const valueInputOption = "RAW";
+
+  const { GoogleAuth } = require("google-auth-library");
+  const { google } = require("googleapis");
+
+  const auth = new GoogleAuth({
+    scopes: "https://www.googleapis.com/auth/spreadsheets",
+  });
+
+  const service = google.sheets({ version: "v4", auth });
+  const resource = {
+    majorDimension: "ROWS",
+    values: [valuesToAppend],
+  };
+  try {
+    const result = await service.spreadsheets.values.append({
+      spreadsheetId,
+      range,
+      valueInputOption,
+      resource,
+    });
+    console.log(`${result.data.updates.updatedCells} cells appended.`);
+    return {
+      success: true,
+      data: result.data,
+    };
+  } catch (err) {
+    console.error(err);
+    return {
+      success: false,
+      error: err,
+    };
+  }
+}
 
 const { ExecutionsClient } = require("@google-cloud/workflows");
 const client = new ExecutionsClient();
@@ -119,7 +163,7 @@ async function callWorkflowsAPI({ name, email, organization, note }) {
         console.log(execution.result);
         return {
           success: true,
-          result: execution.result,
+          data: execution.result,
         };
       }
     }
@@ -127,6 +171,7 @@ async function callWorkflowsAPI({ name, email, organization, note }) {
     console.error(`Error executing workflow: ${e}`);
     return {
       success: false,
+      error: e,
     };
   }
 }
