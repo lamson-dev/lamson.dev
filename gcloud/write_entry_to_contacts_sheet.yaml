@@ -1,0 +1,26 @@
+main:
+  params: [input_params]
+  steps:
+    - init:
+        assign:
+          - sheetId: ${default(map.get(input_params, "sheetId"), "1NakupblmiGT5DaCz3B5uOocsifuOtEXGLwlOHhRC-CA")} # lamson-dev contact form submissions
+          - sheetEntryRange: ${default(map.get(input_params, "sheetEntryRange"), "Sheet1!A1")} # append to last row in A column
+          - name: ${input_params.name}
+          - email: ${input_params.email}
+          - organization: ${input_params.organization}
+          - note: ${input_params.note}
+
+    - append_entry_to_sheet:
+        call: googleapis.sheets.v4.spreadsheets.values.append
+        args:
+          spreadsheetId: ${sheetId}
+          range: ${sheetEntryRange}
+          valueInputOption: RAW
+          body:
+            majorDimension: "ROWS"
+            values:
+              - ["${name}", "${email}", "${organization}", "${note}"]
+        result: result
+
+    - return_result:
+        return: ${result}
