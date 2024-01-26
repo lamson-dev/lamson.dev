@@ -62,12 +62,14 @@ functions.http("submit-contact-form", async (req, res) => {
 
   const useWorkflow = false;
   const apiFunc = useWorkflow ? callWorkflowsAPI : callSheetsAPI;
-  const result = await apiFunc(params);
 
-  if (!result.success) {
-    return res.status(500).send(`Failed to submit contact form.`);
-  }
+  // const result = await apiFunc(params);
+  // if (!result.success) {
+  //   return res.status(500).send(`Failed to submit contact form.`);
+  // }
 
+  // optimistically send success response while we wait for the API call to finish
+  apiFunc(params).then();
   // Success!
   res.status(200).send(`Successfully submitted contact form`);
 });
@@ -105,7 +107,7 @@ async function callSheetsAPI(params) {
       data: result.data,
     };
   } catch (err) {
-    console.error(err);
+    console.error(`Error calling sheets API: ${err} with params ${params}`);
     return {
       success: false,
       error: err,
@@ -119,7 +121,9 @@ const client = new ExecutionsClient();
 /**
  * Calls the Workflow API and waits for the execution result.
  */
-async function callWorkflowsAPI({ name, email, organization, note }) {
+async function callWorkflowsAPI(params) {
+  const { name, email, organization, note } = params;
+
   const projectId = "active-smile-408717";
   const location = "us-central1";
   const workflowName = "write-entry-to-contacts-sheet";
@@ -168,7 +172,7 @@ async function callWorkflowsAPI({ name, email, organization, note }) {
       }
     }
   } catch (e) {
-    console.error(`Error executing workflow: ${e}`);
+    console.error(`Error executing workflow: ${e} with params ${params}`);
     return {
       success: false,
       error: e,
