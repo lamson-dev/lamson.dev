@@ -1,0 +1,44 @@
+# [START workflows_connector_sheets_write]
+main:
+  # usage: --data '{ "folder_id": "<google-drive-folder-id>", "sheet_name":"<custom-sheet-name>"}'
+  params: [input_params]
+  steps:
+    - init:
+        assign:
+          - drive_url: "https://www.googleapis.com/drive/v3/files/"
+          - drive_auth_scope: "https://www.googleapis.com/auth/drive"
+          - folder_id: ${default(map.get(input_params, "folder_id"), "1QjBdD0oG6mfFZK37xlBTkP_RPhwWA0_Y")} # ~/_lamson-dev__gcloud
+          - sheet_name: ${default(map.get(input_params, "sheet_name"), "New Untitled Sheet")}
+    - create_sheet:
+        call: googleapis.sheets.v4.spreadsheets.create
+        args:
+          body:
+            properties:
+              title: "${sheet_name}"
+          connector_params:
+            scopes: "https://www.googleapis.com/auth/drive"
+        result: resp
+    - get_sheet_info:
+        call: http.get
+        args:
+          url: "${drive_url + resp.spreadsheetId}"
+          query:
+            fields: parents
+          auth:
+            type: OAuth2
+            scopes: "${drive_auth_scope}"
+        result: sheet_info
+    - move_sheet:
+        call: http.patch
+        args:
+          url: "${drive_url + resp.spreadsheetId}"
+          query:
+            addParents: "${folder_id}"
+            removeParents: '${sheet_info["body"]["parents"][0]}'
+          auth:
+            type: OAuth2
+            scopes: "${drive_auth_scope}"
+        result: resp
+    - return:
+        return: "${resp}"
+# [END workflows_connector_sheets_write]
