@@ -1,0 +1,59 @@
+# openapi2-functions.yaml
+swagger: "2.0"
+info:
+  title: lamson-dev-api-config api gateway config for lamson.dev cloud functions
+  description: Sample API on API Gateway with a Google Cloud Functions backend
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+securityDefinitions:
+  api_key_header:
+    type: apiKey
+    name: x-api-key
+    in: header
+paths:
+  /get-in-touch:
+    options:
+      operationId: submit-contact-form__cors
+      x-google-backend:
+        address: https://us-central1-active-smile-408717.cloudfunctions.net/submit-contact-form
+      responses:
+        "200":
+          description: A successful response
+    post:
+      summary: trigger submit-contact-form cloud function
+      operationId: submit-contact-form
+      # actual address of the cloud function where the request is supposed to be forwarded
+      x-google-backend:
+        address: https://us-central1-active-smile-408717.cloudfunctions.net/submit-contact-form
+      # authenticate with api_key header param
+      security:
+        - api_key_header: []
+      responses:
+        "200":
+          description: A successful response
+          schema:
+            type: string
+      parameters:
+        - in: query
+          name: name
+          type: string
+          required: true
+          description: name of the person submitting the contact form
+        - in: query
+          name: email
+          type: string
+          required: true
+          description: email of the person submitting the contact form
+        - in: query
+          name: organization
+          type: string
+          required: true
+          description: organization of the person submitting the contact form
+        - in: query
+          name: note
+          type: string
+          required: true
+          description: note of the person submitting the contact form
