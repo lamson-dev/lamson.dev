@@ -35,7 +35,10 @@ const sortedPosts = getSortedPosts(posts);
         </picture>
       </div>
       <div class="home-copy">
-        <h1>Hi, I'm Son</h1>
+        <h1>Hi, lamSon</h1>
+        <h2 id="typewriter-dev-D"></h2>
+        <h2 id="typewriter-dev-E"></h2>
+        <h2 id="typewriter-dev-V"></h2>
 
         <!-- <a
         target="_blank"
@@ -130,6 +133,66 @@ const sortedPosts = getSortedPosts(posts);
   <Footer />
 </Layout>
 
+<script is:inline src="https://unpkg.com/typewriter-effect@latest/dist/core.js"
+></script>
+<script>
+  const D = document.getElementById("typewriter-dev-D");
+  const E = document.getElementById("typewriter-dev-E");
+  const V = document.getElementById("typewriter-dev-V");
+
+  const config = {
+    cursor: "",
+    loop: true,
+    delay: 75,
+    deleteSpeed: 35,
+  };
+
+  const typewriterD = new Typewriter(D, config);
+  typewriterD
+    .pauseFor(500)
+    .typeString("D")
+    .pauseFor(2500)
+    .typeString("eveloper")
+    .pauseFor(5000)
+    .deleteChars(8)
+    .typeString("esigner")
+    .pauseFor(5000)
+    .deleteChars(7)
+    .typeString("reamer")
+    .pauseFor(7000)
+    .start();
+
+  const typewriterE = new Typewriter(E, config);
+  typewriterE
+    .pauseFor(1250)
+    .typeString("E")
+    .pauseFor(3200)
+    .typeString("ntrepreneur")
+    .pauseFor(4800)
+    .deleteChars(11)
+    .typeString("ngineer")
+    .pauseFor(5000)
+    .deleteChars(7)
+    .typeString("xplorer")
+    .pauseFor(5000)
+    .start();
+
+  const typewriterV = new Typewriter(V, config);
+  typewriterV
+    .pauseFor(2000)
+    .typeString("V")
+    .pauseFor(4100)
+    .typeString("isionary")
+    .pauseFor(5500)
+    .deleteChars(8)
+    .typeString("ietnamese")
+    .pauseFor(4800)
+    .deleteChars(9)
+    .typeString("oyager")
+    .pauseFor(3000)
+    .start();
+</script>
+
 <style>
   /* ===== Hero Section ===== */
   #hero {
@@ -137,7 +200,7 @@ const sortedPosts = getSortedPosts(posts);
     display: flex;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-5xl;
+    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-4xl;
   }
   #hero .rss-link {
     @apply mb-6;
@@ -168,20 +231,13 @@ const sortedPosts = getSortedPosts(posts);
     @apply my-8 text-center;
   }
   .home-copy {
-    padding: 0 1em;
-    margin-left: 50px;
-  }
-
-  .home-copy h1 {
-    font-weight: 700;
-    margin-bottom: 0.5em;
-    line-height: 1.3;
+    @apply ml-3 px-2 sm:ml-10 sm:px-6;
   }
 
   .hero-image {
     width: 100%;
     max-width: 300px;
-    margin-bottom: 1em;
     border-radius: 50px;
+    @apply mb-4 px-2;
   }
 </style>
