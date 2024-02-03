@@ -8,7 +8,7 @@ featured: false
 draft: false
 tags:
   - docs
-description: Write me a quick first blog post telling everyone that I'm cool 😎
+description: a quick first blog post telling everyone that I'm cool 😎
 ---
 
 Hey there, cool cats (and kittens, if you're into that)! Welcome to my little corner of the internet – the space where I attempt to be as cool as a cucumber in a freezer. I figured it was high time to jump on the blogging bandwagon and share a glimpse into the riveting world of yours truly.
