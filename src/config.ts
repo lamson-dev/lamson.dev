@@ -3,9 +3,9 @@ import type { Site, SocialObjects } from "./types";
 export const SITE: Site = {
   website: "https://lamson.dev",
   author: "Son Nguyen",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
+  desc: "Son's digital dugout - where I blend the worlds of tech, travel, and life.",
   title: "lamson.dev",
-  ogImage: "astropaper-og.jpg",
+  ogImage: "assets/ogImage.jpg",
   lightAndDarkMode: true,
   postPerPage: 3,
 };
