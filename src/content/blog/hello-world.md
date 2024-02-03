@@ -1,7 +1,7 @@
 ---
 author: Son Nguyen
 pubDatetime: 2024-01-04T09:30:41.816Z
-title: Oh, hey! 👋
+title: Oh, hey! 🤙🏼
 slug: hello-world
 featured: false
 # ogImage: https://user-images.githubusercontent.com/53733092/215771435-25408246-2309-4f8b-a781-1f3d93bdf0ec.png
