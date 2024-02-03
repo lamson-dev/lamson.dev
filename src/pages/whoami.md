@@ -3,24 +3,26 @@ layout: ../layouts/whoamiLayout.astro
 title: "whoami"
 ---
 
-<section class="columns-2 p-0">
-  <div class="w-full pr-4">
-
-Hey! My name is Sơn. I was born and raised in Sài Gòn, Việt Nam. I went abroad to the U.S. to pursue a college degree.
-
-I’ve been happy to call Seattle, WA my home for the past 10 years. I’m married to a loving and supportive partner, and I’m a proud paw-rent to an adorable mini-poodle.
-
-If you've come to this page, you're probably curious to learn more about me. Welcome!
-
-I'll take you on a journey to share a glimpse into my story.
-
+<section class="sm:columns-2 p-0">
+  <div class="w-full sm:pr-2">
+    <p class="mt-0">
+       🤙🏼 Hey! My name is Sơn. I was born and raised in Sài Gòn, Việt Nam. I went abroad to the U.S. to pursue a college degree.
+    </p>
+    <p>
+      I’ve been happy to call Seattle, WA my home for the past 10 years. I’m married to a loving and supportive partner, and I’m a proud paw-rent to an adorable mini-poodle.
+    </p>
+    <p>
+      If you've come to this page, you're probably curious to learn more about me. Welcome!
+    </p>
+    <p>
+      I'll take you on a journey to share a glimpse into my story.
+    </p>
   </div>
-
-  <div class="w-full pl-4 pt-1">
+  <div class="w-full sm:pl-4">  
     <picture>
       <source srcset="assets/pic-whoami.jpg"  />
       <img
-        class="rounded-3xl w-full"
+        class="rounded-3xl"
         alt="dorky photo of Son holding a camera"
         src="assets/pic-whoami.jpg"
       />
@@ -58,6 +60,6 @@ I envision myself leading a tight-knit technology business where team members ha
 
 <hr />
 
-# 😎
+# 🧋
 
 Welcome to my digital dugout, where I blend the worlds of tech, travel, and life. Join me in sharing the highs, the hacks, and the heartfelt moments on this personal journey. It's not just a blog; it's a glimpse into my techy, wanderlust-filled, and everyday-adventurous life. Let's connect through the pixels and paragraphs, exploring the essence of what makes each day uniquely mine.

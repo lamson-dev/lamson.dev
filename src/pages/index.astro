@@ -21,8 +21,8 @@ const sortedPosts = getSortedPosts(posts);
 <Layout>
   <Header />
   <main id="main-content">
-    <section id="hero">
-      <div>
+    <section id="hero" class="columns-2">
+      <div class="w-full">
         <picture>
           <source srcset="/assets/pic-profile.png" media="(min-width: 600px)" />
           <img
@@ -34,46 +34,11 @@ const sortedPosts = getSortedPosts(posts);
           />
         </picture>
       </div>
-      <div class="home-copy">
+      <div class="sm:px-6; ml-3 w-full px-2 sm:ml-10">
         <h1>lam Sơn</h1>
         <h2 id="typewriter-dev-D"></h2>
         <h2 id="typewriter-dev-E"></h2>
         <h2 id="typewriter-dev-V"></h2>
-
-        <!-- <a
-        target="_blank"
-        href="/rss.xml"
-        class="rss-link"
-        aria-label="rss feed"
-        title="RSS Feed"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" class="rss-icon"
-          ><path
-            d="M19 20.001C19 11.729 12.271 5 4 5v2c7.168 0 13 5.832 13 13.001h2z"
-          ></path><path
-            d="M12 20.001h2C14 14.486 9.514 10 4 10v2c4.411 0 8 3.589 8 8.001z"
-          ></path><circle cx="6" cy="18" r="2"></circle>
-        </svg>
-      </a> -->
-
-        <!-- <p>
-        Read the blog posts or check
-        <LinkButton
-          className="underline decoration-dashed underline-offset-4 hover:text-skin-accent"
-          href="https://github.com/satnaing/astro-paper#readme"
-        >
-          README
-        </LinkButton> for more info.
-      </p>
-      {
-        // only display if at least one social link is enabled
-        socialCount > 0 && (
-          <div class="social-wrapper">
-            <div class="social-links">Social Links:</div>
-            <Socials />
-          </div>
-        )
-      } -->
       </div>
     </section>
 
@@ -230,10 +195,6 @@ const sortedPosts = getSortedPosts(posts);
   .all-posts-btn-wrapper {
     @apply my-8 text-center;
   }
-  .home-copy {
-    @apply ml-3 px-2 sm:ml-10 sm:px-6;
-  }
-
   .hero-image {
     width: 100%;
     max-width: 300px;
