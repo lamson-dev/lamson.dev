@@ -1,6 +1,6 @@
 ---
 layout: ../layouts/whoamiLayout.astro
-ogImage: ../assets/pic-whoami.jpg
+ogImage: ../assets/og-whoami.jpg
 title: "whoami"
 ---
 

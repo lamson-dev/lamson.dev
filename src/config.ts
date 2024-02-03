@@ -5,7 +5,7 @@ export const SITE: Site = {
   author: "Son Nguyen",
   desc: "Son's digital dugout - where I blend the worlds of tech, travel, and life.",
   title: "lamson.dev",
-  ogImage: "assets/ogImage.jpg",
+  ogImage: "assets/og-image.jpg",
   lightAndDarkMode: true,
   postPerPage: 3,
 };
