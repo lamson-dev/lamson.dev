@@ -9,7 +9,7 @@ title: "whoami"
        🤙🏼 Hey! My name is Sơn. I was born and raised in Sài Gòn, Việt Nam. I went abroad to the U.S. to pursue a college degree.
     </p>
     <p>
-      I’ve been happy to call Seattle, WA my home for the past 10 years. I’m married to a loving and supportive partner, and I’m a proud paw-rent to an adorable mini-poodle.
+      I’ve been happy to call Seattle, WA my home. I’m married to a loving and supportive partner, and I’m a proud paw-rent to an adorable mini-poodle.
     </p>
     <p>
       If you've come to this page, you're probably curious to learn more about me. Welcome!
@@ -42,7 +42,7 @@ I have over 10 years of experience in developing and engineering software applic
 
 Throughout my career, I have worked on various projects including developing iOS and Android mobile apps, building API services, creating test automation frameworks, implementing multi-currency and internationalization features, migrating source control systems, transitioning monolith architectures to micro-services, and establishing foundations for teams to build and deploy UI applications and their services, at scale.
 
-I am also a technology evangelist. I have [developed and evangelized new design system with React components library](https://www.apptio.com/blog/apex-the-new-look-and-feel-for-apptio-products/), and designed a micro-frontend framework to integrate multiple products into [a single cohesive product suite](https://www.apptio.com/blog/apptio-announces-simple-powerful-product-suite/). Additionally, I have helped teams and enterprise software companies improve their velocity by implementing robust and secure multi-cloud infrastructure on Kubernetes platform, and assisting them in achieving SOC2 compliance.
+I am also a technology evangelist. I have developed and evangelized [new design system with React components library](https://www.apptio.com/blog/apex-the-new-look-and-feel-for-apptio-products/), and designed a micro-frontend framework to integrate multiple products into [a single cohesive product suite](https://www.apptio.com/blog/apptio-announces-simple-powerful-product-suite/). Additionally, I have helped teams and enterprise software companies improve their velocity by implementing robust and secure multi-cloud infrastructure on Kubernetes platform, and assisting them in achieving SOC2 compliance.
 
 Currently, I am investing my energy on learning about Large Language Models and developing software that would be helpful for people.
 
