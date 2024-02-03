@@ -8,13 +8,14 @@ export interface Props {
   frontmatter: {
     title: string;
     description?: string;
+    ogImage?: string;
   };
 }
 
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={`${frontmatter.title} | ${SITE.title}`}>
+<Layout title={`${frontmatter.title} | ${SITE.title}`} ogImage={frontmatter.ogImage}>
   <Header activeNav="whoami" />
   <main id="main-content" class="mt-8">
     <section id="whoami" class="prose mb-28 max-w-3xl prose-img:border-0">
