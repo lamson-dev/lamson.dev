@@ -2,9 +2,9 @@ import type { Site, SocialObjects } from "./types";
 
 export const SITE: Site = {
   website: "https://lamson.dev",
-  author: "Son Nguyen",
-  desc: "Son's digital dugout - where I blend the worlds of tech, travel, and life.",
-  title: "lamson.dev",
+  author: "lamSơn",
+  desc: "Developer, Entrepreneur, Visionary.",
+  title: "lamSơn | DEV",
   ogImage: "assets/og-image.jpg",
   lightAndDarkMode: true,
   postPerPage: 3,

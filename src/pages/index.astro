@@ -26,7 +26,7 @@ const sortedPosts = getSortedPosts(posts);
         <picture>
           <source srcset="/assets/pic-profile.png" media="(min-width: 600px)" />
           <img
-            class="hero-image"
+            class="mb-4 w-full max-w-80 rounded-[42px] px-2"
             alt="Headshot of Son"
             src="/assets/pic-profile.png"
             width="550"
@@ -34,11 +34,10 @@ const sortedPosts = getSortedPosts(posts);
           />
         </picture>
       </div>
-      <div class="sm:px-6; ml-3 w-full px-2 sm:ml-10">
-        <h1>lam Sơn</h1>
-        <h2 id="typewriter-dev-D"></h2>
-        <h2 id="typewriter-dev-E"></h2>
-        <h2 id="typewriter-dev-V"></h2>
+      <div class="ml-3 w-full px-2 sm:ml-10 sm:px-6">
+        <h1 id="typewriter-dev-D"></h1>
+        <h1 id="typewriter-dev-E"></h1>
+        <h1 id="typewriter-dev-V"></h1>
       </div>
     </section>
 
@@ -165,7 +164,7 @@ const sortedPosts = getSortedPosts(posts);
     display: flex;
   }
   #hero h1 {
-    @apply my-4 inline-block text-3xl font-bold sm:my-8 sm:text-4xl;
+    @apply my-2 text-xl sm:my-8 sm:text-2xl;
   }
   #hero .rss-link {
     @apply mb-6;
@@ -194,11 +193,5 @@ const sortedPosts = getSortedPosts(posts);
   }
   .all-posts-btn-wrapper {
     @apply my-8 text-center;
-  }
-  .hero-image {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 50px;
-    @apply mb-4 px-2;
   }
 </style>
