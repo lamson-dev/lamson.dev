@@ -6,8 +6,9 @@ title: "whoami"
 
 <section class="sm:columns-2 p-0">
   <div class="w-full sm:pr-2">
+    <h1>🤙🏼</h1>
     <p class="mt-0">
-       🤙🏼 Hey! My name is Sơn. I was born and raised in Sài Gòn, Việt Nam. I went abroad to the U.S. to pursue a college degree.
+       Hey! My name is Sơn. I was born and raised in Sài Gòn, Việt Nam. I went abroad to the U.S. to pursue a college degree.
     </p>
     <p>
       I’ve been happy to call Seattle, WA my home. I’m married to a loving and supportive partner, and I’m a proud paw-rent to an adorable mini-poodle.
@@ -19,9 +20,9 @@ title: "whoami"
       I'll take you on a journey to share a glimpse into my story.
     </p>
   </div>
-  <div class="w-full sm:pl-4">  
+  <div class="w-full sm:pl-4 sm:pt-2">  
     <picture>
-      <source srcset="assets/pic-whoami.jpg"  />
+      <source srcset="/assets/pic-whoami.jpg"  />
       <img
         class="rounded-3xl"
         alt="dorky photo of Son holding a camera"
