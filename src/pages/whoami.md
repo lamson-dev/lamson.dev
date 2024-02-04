@@ -25,7 +25,7 @@ title: "whoami"
       <img
         class="rounded-3xl"
         alt="dorky photo of Son holding a camera"
-        src="assets/pic-whoami.jpg"
+        src="/assets/pic-whoami.jpg"
       />
     </picture>
   </div>
