@@ -25,6 +25,11 @@ pnpm-debug.log*
 # ignore Jampack cache files
 .jampack/
 
+# playwright
+test-results/
+playwright-report/
+playwright/.cache/
+
 # yarn
 .yarn/*
 !.yarn/patches
