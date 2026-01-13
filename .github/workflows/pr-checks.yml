@@ -4,7 +4,8 @@ on:
   pull_request:
     branches: ["*"]
   push:
-    branches: ["*"]
+    # Run on all branches except master (deploy.yml handles master)
+    branches-ignore: [master]
 
 jobs:
   lint-and-typecheck:
