@@ -10,6 +10,17 @@ Welcome to my digital dugout, where I blend the worlds of tech, travel, and life
 - **Testing**: Playwright
 - **Deployment**: GitHub Pages
 
+## 📋 Prerequisites
+
+- **Node.js**: >= 20.18.1 (required for Astro 5)
+- **npm**: Latest version
+
+Check your Node.js version:
+
+```bash
+node --version
+```
+
 ## 🛠️ Development
 
 ```bash
@@ -42,6 +53,14 @@ All pull requests are automatically checked with:
 - Playwright E2E tests
 
 See [.github/WORKFLOWS.md](.github/WORKFLOWS.md) for details.
+
+## 🚀 Deployment
+
+This site can be deployed to multiple platforms (Cloudflare Pages, GitHub Pages, Vercel, Netlify).
+
+**Important**: Ensure Node.js >= 20.18.1 is configured on your deployment platform.
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions and configuration.
 
 ## ✅ Lighthouse Score
 
