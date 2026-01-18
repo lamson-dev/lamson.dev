@@ -59,10 +59,10 @@ const options: SatoriOptions = {
       : [],
 };
 
-function svgBufferToPngBuffer(svg: string) {
+function svgBufferToPngBuffer(svg: string): Uint8Array {
   const resvg = new Resvg(svg);
   const pngData = resvg.render();
-  return pngData.asPng();
+  return new Uint8Array(pngData.asPng());
 }
 
 export async function generateOgImageForPost(post: CollectionEntry<"blog">) {
@@ -72,7 +72,7 @@ export async function generateOgImageForPost(post: CollectionEntry<"blog">) {
       "Fonts not available, skipping OG image generation for post:",
       post.data.title
     );
-    return Buffer.alloc(0);
+    return new Uint8Array(0);
   }
   const svg = await satori(postOgImage(post), options);
   return svgBufferToPngBuffer(svg);
@@ -82,7 +82,7 @@ export async function generateOgImageForSite() {
   if (fontRegular.byteLength === 0) {
     // Return a simple placeholder PNG when fonts are unavailable
     console.warn("Fonts not available, skipping OG image generation for site");
-    return Buffer.alloc(0);
+    return new Uint8Array(0);
   }
   const svg = await satori(siteOgImage(), options);
   return svgBufferToPngBuffer(svg);
