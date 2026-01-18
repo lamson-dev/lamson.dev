@@ -24,8 +24,8 @@ test.describe('Blog', () => {
   test('should navigate from posts page to individual post', async ({ page }) => {
     await page.goto('/posts/');
 
-    // Find and click on a post link
-    const postLink = page.locator('article a').first();
+    // Find and click on a post link (posts are in li > a structure)
+    const postLink = page.locator('main ul li a').first();
     await expect(postLink).toBeVisible();
 
     await postLink.click();

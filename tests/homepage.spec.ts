@@ -5,7 +5,7 @@ test.describe('Homepage', () => {
     await page.goto('/');
 
     // Check that the page loaded
-    await expect(page).toHaveTitle(/lamson\.dev/i);
+    await expect(page).toHaveTitle(/lamSơn.*DEV/i);
 
     // Check for the hero section with typewriter effect
     await expect(page.locator('#typewriter-dev-D')).toBeVisible();
