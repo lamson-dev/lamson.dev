@@ -56,10 +56,9 @@ jobs:
           retention-days: 1
 
   test:
-    name: E2E Tests (Optional)
+    name: E2E Tests
     needs: build
     runs-on: ubuntu-latest
-    continue-on-error: true  # Don't fail the workflow if tests fail due to network restrictions
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -79,13 +78,26 @@ jobs:
           name: dist
           path: dist/
 
+      - name: Get installed Playwright version
+        id: playwright-version
+        run: echo "version=$(node -p "require('@playwright/test/package.json').version")" >> $GITHUB_OUTPUT
+
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        id: playwright-cache
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ steps.playwright-version.outputs.version }}
+
       - name: Install Playwright browsers
-        id: playwright-install
-        continue-on-error: true
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
 
+      - name: Install Playwright dependencies only
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
+
       - name: Run Playwright tests
-        if: steps.playwright-install.outcome == 'success'
         run: npm test
 
       - name: Upload test results
