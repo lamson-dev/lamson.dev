@@ -16,11 +16,9 @@ test.describe('Homepage', () => {
   test('should have navigation links', async ({ page }) => {
     await page.goto('/');
 
-    // Check for navigation elements
-    await expect(page.locator('a[href="/posts/"]')).toBeVisible();
-    await expect(page.locator('a[href="/tags/"]')).toBeVisible();
-    await expect(page.locator('a[href="/whoami/"]')).toBeVisible();
-    await expect(page.locator('a[href="/search/"]')).toBeVisible();
+    // Check for navigation elements (whoami is in nav, posts is via "All Posts" button)
+    await expect(page.locator('a[href="/whoami"]')).toBeVisible();
+    await expect(page.locator('a[href="/posts"]')).toBeVisible();
   });
 
   test('should display the profile image', async ({ page }) => {

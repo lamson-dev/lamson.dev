@@ -1,11 +1,9 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Navigation', () => {
-  test('should navigate to search page', async ({ page }) => {
-    await page.goto('/');
-
-    // Click on search link
-    await page.click('a[href="/search/"]');
+  test('should load search page', async ({ page }) => {
+    // Navigate directly to search page (search link is not in main nav)
+    await page.goto('/search');
 
     // Wait for navigation
     await page.waitForLoadState('networkidle');
@@ -22,7 +20,7 @@ test.describe('Navigation', () => {
     await page.goto('/');
 
     // Click on whoami link
-    await page.click('a[href="/whoami/"]');
+    await page.click('a[href="/whoami"]');
 
     // Wait for navigation
     await page.waitForLoadState('networkidle');
@@ -35,7 +33,7 @@ test.describe('Navigation', () => {
     await page.goto('/');
 
     // Click on posts link
-    await page.click('a[href="/posts/"]');
+    await page.click('a[href="/posts"]');
 
     // Wait for navigation
     await page.waitForLoadState('networkidle');
@@ -44,11 +42,9 @@ test.describe('Navigation', () => {
     await expect(page).toHaveURL(/\/posts/);
   });
 
-  test('should navigate to tags page', async ({ page }) => {
-    await page.goto('/');
-
-    // Click on tags link
-    await page.click('a[href="/tags/"]');
+  test('should load tags page', async ({ page }) => {
+    // Navigate directly to tags page (tags link is not in main nav)
+    await page.goto('/tags');
 
     // Wait for navigation
     await page.waitForLoadState('networkidle');
